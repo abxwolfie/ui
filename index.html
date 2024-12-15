@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Cutie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f7e6ff url('https://i.gifer.com/J5m.gif') center/cover no-repeat;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #heart-button {
+            margin-top: 20px;
+            background-color: #ff69b4;
+            color: white;
+            box-shadow: 0 0 15px #ff69b4;
+        }
+
+        #heart-button:hover {
+            background-color: #ff1493;
+        }
+
+        .animation {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="main-container">
+        <h1>Hiee Cutie! How are you?</h1>
+        <div class="button-container" id="question-container">
+            <button id="option1">Not Well</button>
+            <button id="option2">Great</button>
+        </div>
+        <div class="animation">
+            <img src="./piyopiyo-baby-chicken.gif" alt="Chick going to the moon" style="width: 200px; height: auto;">
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const mainContainer = document.getElementById('main-container');
+
+        function loadQuestion(questionNumber) {
+            const questions = [
+                {
+                    text: "Hiee galodu, kesi ho tum?",
+                    options: ["Ok Ok", "Theek Hu"],
+                    gif: "./piyopiyo-baby-chicken.gif"
+                },
+                {
+                    text: "Ka hua babu ko?",
+                    options: ["Kuch nahi", "Kuch nahi"],
+                    gif: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2o2OTgyc2x3dnF2Z2RkMTIwbGNtNnpuZDRlcXk2OWR6YzhxdTZpdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mHEpZYd9y7CKY/giphy.gif"
+                },
+                {
+                    text: "Kuch ni hua babu ko, sachii?",
+                    options: ["Yeshh", "Kuch nahi"],
+                    gif: "https://media.giphy.com/media/GWcgfING8NavRHAIaj/giphy.gif?cid=790b7611wj6982slwvqvgdd120lcm6znd4eqy69dzc8qu6iu&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                },
+                {
+                    text: "Come, you want huggie?",
+                    options: ["Yeshh", "No phele naha ke aao"],
+                    gif: "https://media.giphy.com/media/fYYWa1Sqg3mWUkbhRx/giphy.gif?cid=790b7611wj6982slwvqvgdd120lcm6znd4eqy69dzc8qu6iu&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                },
+                {
+                    text: "Chizi khaogi?",
+                    options: ["Yesh", "Nahi duhu kuch nahi"],
+                    gif: " https://media.giphy.com/media/Qp0rUFncftgvpKKmJT/giphy.gif?cid=ecf05e47qnym2hsxtdsw3a292i8223jxx3irvqf0k3q10elm&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                },
+                {
+                    text: "Ka khayega mera babu?",
+                    options: ["Peri Peri Fries", "4700 BC Popcorn", "Keventers", "Momo", "Wow Mo Burger"],
+                    gif: "https://media.giphy.com/media/XCoHM38a9EtOBo5DRq/giphy.gif?cid=790b7611wj6982slwvqvgdd120lcm6znd4eqy69dzc8qu6iu&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                },
+                {
+                    text: "Khana aate hai, tb tak mai kuchu kuchu krlu?",
+                    options: ["Nahi abhi bahar hu", "Yeshhh"],
+                    gif: "https://media.giphy.com/media/vgyeei729llBazJNH8/giphy.gif?cid=ecf05e47jc8gtetps9swg5htl5eaiqbxel3na1lqwpqo9nmx&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                },
+                {
+                    text: "Ae just want to say one thing\nI love youuuu bhottt saaaalaaaaaaaa",
+                    options: ["Aaah aaah", "I loveee uuu bhot saalaa"],
+                    gif: "https://media.giphy.com/media/n7n3CPjhPUYjR233k7/giphy.gif?cid=ecf05e47h7pkypocz9c0nyec7rpzr0cvqw9cjtznuvhjwi39&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+                },
+            ];
+
+            if (questionNumber > questions.length) {
+                mainContainer.innerHTML = `
+                    <h1>I love u bhot sara babu, you mean a lot to me !</h1>
+                    <p>I love you, will care for you, will pamper you, will do everything to keep that smile constant on your face.</p>
+                    <div class="animation">
+                        <img src="./piyopiyo-baby-chicken.gif" alt="Chick going to the moon" style="width: 200px; height: auto;">
+                    </div>
+                    <button id="heart-button">❤️</button>
+                `;
+
+                const heartButton = document.getElementById('heart-button');
+                let heartSize = 18;
+                heartButton.addEventListener('click', () => {
+                    heartSize += 5;
+                    heartButton.style.fontSize = `${heartSize}px`;
+                });
+                return;
+            }
+
+            const question = questions[questionNumber - 1];
+            mainContainer.innerHTML = `
+                <h1>${question.text}</h1>
+                <div class="button-container">
+                    ${question.options
+                    .map(
+                        (option, index) => `<button id="option${index + 1}">${option}</button>`
+                    )
+                    .join('')}
+                </div>
+                <div class="animation">
+                    <img src="${question.gif}" alt="Question Animation" style="width: 200px; height: auto;">
+                </div>
+            `;
+
+            question.options.forEach((option, index) => {
+                document.getElementById(`option${index + 1}`).addEventListener('click', () => {
+                    handleAnswer(questionNumber, option);
+                });
+            });
+        }
+
+        function handleAnswer(questionNumber, selectedOption) {
+            if (questionNumber === 3 && selectedOption === "Kuch nahi") {
+                loadQuestion(2);
+                return;
+            }
+            if (questionNumber === 4) {
+                if (selectedOption === "Yeshh") {
+                    alert("Sending virtual huggieee tightt wallliiii");
+                } else {
+                    alert("For your kind information, mai roj nahata hu");
+                    loadQuestion(4);
+                    return;
+                }
+            }
+            if (questionNumber === 5 && selectedOption === "Nahi duhu kuch nahi") {
+                const yesButton = document.getElementById('option1');
+                let size = parseInt(window.getComputedStyle(yesButton).fontSize, 10);
+                yesButton.style.fontSize = `${size + 5}px`;
+                return;
+            }
+            if (questionNumber === 6) {
+                alert(`Adding to cart: ${selectedOption}`);
+            }
+            if (questionNumber === 7 && selectedOption === "Nahi abhi bahar hu") {
+                const yesButton = document.getElementById('option2');
+                let size = parseInt(window.getComputedStyle(yesButton).fontSize, 10);
+                yesButton.style.fontSize = `${size + 5}px`;
+                return;
+            }
+            if (questionNumber === 7 && selectedOption === "Yeshhh") {
+                alert("Kcuchchcucucuc kuchcucuuuuu bhottt saaaraaaa");
+            }
+            loadQuestion(questionNumber + 1);
+        }
+
+        loadQuestion(currentQuestion);
+    </script>
+</body>
+
+</html>
